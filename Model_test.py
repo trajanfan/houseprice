@@ -19,10 +19,18 @@ if __name__ == '__main__':
         temp = pd.read_csv(path + "train_" + str(j) +".csv").iloc[:,1:]
         train_data = pd.concat([train_data,temp])
     
-    #test set
+    # test set
     mape, pred = model_train_ensembling(train_data,test.iloc[:,1:],param_list, weight_in_test)
     print('Using ensembling method',mape)
     
-    #test set without ensembling
+    # test set without ensembling
     mape, pred = model_train(train_data,test.iloc[:,1:], param_list[model_used_in_test])
     print('Not using ensembling method',mape)
+    
+    # correlation among predictions
+    pred_pool = []
+    for i in range(4):
+        mape, pred = model_train(train_data,test.iloc[:,1:], param_list[i])
+        pred_pool.append(pred)
+    pred_array = np.array(pred_pool)
+    print(np.corrcoef(pred_array))
