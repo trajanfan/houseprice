@@ -125,7 +125,7 @@ def feature_selection(all_data):
     temp = all_data.drop(["lottype", "irrlotCode", "proxcode", "texclass", "bsmtcode", "neighborhood","landuse","price"], axis=1)
     
     # delete correlated variables
-    temp.drop(Config.correlated_delete_group, axis=1)
+    temp = temp.drop(Config.correlated_delete_group, axis=1)
     all_data = pd.concat([temp,irrlotCode, proxcode, lottype, texclass, bsmtcode, neighborhood, landuse, price], axis  = 1)
     
     all_data = all_data.sample(frac = 1)
