@@ -19,5 +19,13 @@ tuning_pool_list = [
 model_used_in_test = 1
 weight_in_test = [0.2,0.4,0.2,0.2]
 split = 4
-correlated_group = ['builtfAR', 'residfAR', 'facilfAR',"resarea","assessland","assesstot","exemptland","gross"
-                    ,"garagearea","retailarea","bldgdepth","lotdepth","buildingclass"]
+correlated_group =[
+        ['commfAR', 'builtfAR', 'residfAR', 'facilfAR'],
+        ["lotfront","resarea","assessland","assesstot","exemptland"],
+        ["land","gross"],
+        ["comarea","garagearea","retailarea"],
+        ["bldgfront","bldgdepth","lotdepth"],
+        ["texclass","buildingclass"]
+        ]
+correlated_delete_group = ['builtfAR', 'residfAR', 'facilfAR',"resarea","assessland","assesstot","exemptland"
+                           ,"gross","garagearea","retailarea","bldgdepth","lotdepth","buildingclass"]
