@@ -45,7 +45,7 @@ def model_set(X_train, X_valid, y_train, y_valid, param):
     
     return pred
 
-def cross_valid(path, n, param_list, columns, bagging = False, bagging_size = 20):
+def cross_valid(path, n, param_list, columns, bagging = False, bagging_size = 100):
     MAPE_cv = []
     for i in range(n):
         train_data = pd.DataFrame(columns = columns)
